@@ -4,7 +4,9 @@ A platform for daily coding exercises in preparation for the coding interview
 </p>
 
 <p align="center">
-<a href="https://binarysearch.io/problems" target=_blank>binarysearch.io</a>
+  <a href="https://binarysearch.io/problems" target=_blank>binarysearch.io</a><br>
+  <a href="https://www.leetcode.com/">leetcode.com</a><br>
+  <a href="https://www.interviewcake.com/">interviewcake.com</a>
 </p>
 
 <p align="center">
