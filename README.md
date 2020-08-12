@@ -7,6 +7,7 @@ A platform for daily coding exercises in preparation for the coding interview
   <a href="https://binarysearch.io/problems" target=_blank>binarysearch.io</a><br>
   <a href="https://www.leetcode.com/">leetcode.com</a><br>
   <a href="https://www.interviewcake.com/">interviewcake.com</a>
+  <a href='https://www.hackerrank.com/challenges/30-hello-world/leaderboard'>hackerrank.com</a>
 </p>
 
 <p align="center">
