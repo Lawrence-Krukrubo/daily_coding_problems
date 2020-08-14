@@ -165,8 +165,33 @@ def solve(weights, limit):
 print(solve([200,300, 200], 400))
 
 
+"""
+14th Aug 2020
+ 
+You're given a two-dimensional matrix of unique strings representing city blocks, and a list of strings blocks to visit. 
+Given that you are sitting at block matrix[0][0], 
+return the total Manhattan distance required to visit every block in order.
 
+For example, given this matrix:
 
+[["q", "b", "c"],
+ ["d", "e", "z"],
+ ["g", "h", "i"]]
+And blocks = ["h", "b", "c"], return 6 because:
 
+"h" is 2 blocks south and 1 block east.
+"b" is 2 blocks north.
+"c" is 1 block east.
+Example 1
+Input
 
+matrix = [
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g", "h", "i"]
+]
+blocks = ["h", "b", "c"]
+Output
 
+6
+"""
