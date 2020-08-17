@@ -162,13 +162,14 @@ def solve(weights, limit):
 
     return ships
 
-print(solve([200,300, 200], 400))
+#print(solve([200,300, 200], 400))
 
 
 """
 14th Aug 2020
  
-You're given a two-dimensional matrix of unique strings representing city blocks, and a list of strings blocks to visit. 
+You're given a two-dimensional matrix of unique strings representing city blocks, 
+and a list of strings blocks to visit. 
 Given that you are sitting at block matrix[0][0], 
 return the total Manhattan distance required to visit every block in order.
 
@@ -195,3 +196,37 @@ Output
 
 6
 """
+
+
+def manhattan(matrix, blocks):
+
+    curr_pos = [0, 0]
+    cost = 0
+
+    for i in blocks:
+        for j in range(len(matrix)):
+            if i in matrix[j]:
+                y_axis = abs(j - curr_pos[0])
+                x_axis = abs(curr_pos[1] - matrix[j].index(i))
+                cost += y_axis + x_axis
+                curr_pos = [j, matrix[j].index(i)]
+                break
+    return cost
+
+
+matrix = [
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g", "h", "i"]
+]
+
+blocks = ["c", "b", "i"]
+
+# print(manhattan(matrix, blocks))
+
+
+
+
+
+
+
