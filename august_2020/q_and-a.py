@@ -36,6 +36,7 @@ def uber_quest(arr):
     return y
 
 # print(uber_quest([1,2,3,4,5]))
+# ---------------------------------------------------------------------------------------------
 
 
 """
@@ -100,7 +101,8 @@ def myAtoi(str):
 
     return new_str
 
-#print(myAtoi(" b11228552307"))
+# print(myAtoi(" b11228552307"))
+# ---------------------------------------------------------------------------------------------
 
 
 """
@@ -162,11 +164,12 @@ def solve(weights, limit):
 
     return ships
 
-#print(solve([200,300, 200], 400))
+# print(solve([200,300, 200], 400))
+# ---------------------------------------------------------------------------------------------
 
 
 """
-14th Aug 2020
+16th Aug 2020
  
 You're given a two-dimensional matrix of unique strings representing city blocks, 
 and a list of strings blocks to visit. 
@@ -223,7 +226,96 @@ matrix = [
 blocks = ["c", "b", "i"]
 
 # print(manhattan(matrix, blocks))
+# ---------------------------------------------------------------------------------------------
 
+
+"""
+17th Aug
+BINARY-SEARCH
+
+Sum of Two Numbers
+Question 1 of 700
+Given a list of numbers nums and a number k, 
+return whether any two numbers from the list add up to k. 
+You may not use the same element twice.
+
+Note: Numbers can be negative or 0.
+
+Example 1
+Input
+
+nums = [35, 8, 18, 3, 22]
+k = 11
+
+Output
+
+True
+Explanation
+
+8 + 3 = 11
+
+"""
+
+
+def sum_2_nums(nums, k):
+
+        nums = sorted(nums, reverse=True)
+
+        for i in range(len(nums)):
+
+            if nums[i] + nums[int(len(nums)*0.25)] <= k:
+                for j in range(int(len(nums)*0.25), i, -1):
+                    if nums[i] + nums[j-1] > k:
+                        break
+                    elif nums[i] + nums[j-1] == k:
+                        return True
+                    else:
+                        if j == i:
+                            break
+                        continue
+
+            elif nums[i] + nums[int(len(nums)*0.5)] <= k:
+                for j in range(int(len(nums)*0.5), i, -1):
+                    if nums[i] + nums[j-1] > k:
+                        break
+                    elif nums[i] + nums[j-1] == k:
+                        return True
+                    else:
+                        if j == i:
+                            break
+                        continue
+
+            elif nums[i] + nums[int(len(nums)*0.75)] <= k:
+                for j in range(int(len(nums)*0.75), i, -1):
+                    if nums[i] + nums[j-1] > k:
+                        break
+                    elif nums[i] + nums[j-1] == k:
+                        return True
+                    else:
+                        if j == i:
+                            break
+                        continue
+
+            else:
+                for j in range(len(nums), i, -1):
+                    if nums[i] + nums[j-1] > k:
+                        break
+                    elif nums[i] + nums[j-1] == k:
+                        return True
+                    else:
+                        if j == i:
+                            break
+                        continue
+
+        return False
+
+
+nums = [-22, 22, -11, 11]
+k = 0
+
+print(sum_2_nums(nums, k))
+
+# Wrong Answer- work tomorrow
 
 
 
