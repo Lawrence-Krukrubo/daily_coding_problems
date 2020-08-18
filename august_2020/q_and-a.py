@@ -259,64 +259,55 @@ Explanation
 
 def sum_2_nums(nums, k):
 
+    try:
+        assert len(nums) > 1
         nums = sorted(nums, reverse=True)
-
-        for i in range(len(nums)):
-
-            if nums[i] + nums[int(len(nums)*0.25)] <= k:
-                for j in range(int(len(nums)*0.25), i, -1):
-                    if nums[i] + nums[j-1] > k:
-                        break
-                    elif nums[i] + nums[j-1] == k:
-                        return True
-                    else:
-                        if j == i:
-                            break
-                        continue
-
-            elif nums[i] + nums[int(len(nums)*0.5)] <= k:
-                for j in range(int(len(nums)*0.5), i, -1):
-                    if nums[i] + nums[j-1] > k:
-                        break
-                    elif nums[i] + nums[j-1] == k:
-                        return True
-                    else:
-                        if j == i:
-                            break
-                        continue
-
-            elif nums[i] + nums[int(len(nums)*0.75)] <= k:
-                for j in range(int(len(nums)*0.75), i, -1):
-                    if nums[i] + nums[j-1] > k:
-                        break
-                    elif nums[i] + nums[j-1] == k:
-                        return True
-                    else:
-                        if j == i:
-                            break
-                        continue
-
-            else:
-                for j in range(len(nums), i, -1):
-                    if nums[i] + nums[j-1] > k:
-                        break
-                    elif nums[i] + nums[j-1] == k:
-                        return True
-                    else:
-                        if j == i:
-                            break
-                        continue
-
+    except AssertionError:
         return False
 
+    _25 = int(len(nums)*0.25)
+    _50 = int(len(nums)*0.5)
+    _75 = int(len(nums)*0.75)
 
-nums = [-22, 22, -11, 11]
-k = 0
+    for i in range(len(nums)):
+        if i != len(nums)-1:
+            if nums[i] + nums[-1] > k:
+                continue
 
-print(sum_2_nums(nums, k))
+            if nums[i] + nums[-1] == k:
+                return True
+
+        if nums[i] + nums[_25] <= k:
+            for j in range(_25, i, -1):
+                if nums[i] + nums[j] == k:
+                    return True
+
+        if nums[i] + nums[_50] <= k:
+            for j in range(_50, _25, -1):
+                if nums[i] + nums[j] == k:
+                    return True
+
+        if nums[i] + nums[_75] <= k:
+            for j in range(_75, _50, -1):
+                if nums[i] + nums[j] == k:
+                    return True
+
+        else:
+            for j in range(len(nums)-1, _75, -1):
+                if nums[i] + nums[j] == k:
+                    return True
+                else:
+                    break
+
+    return False
+
+nums = [624, 267, 228, 405, 141, 738, 831, 667, 14, 597, 230]
+k = 534
+
+print(sum_2_nums(nums,k))
 
 # Wrong Answer- work tomorrow
-
+# I need to be resetting nums to meet the list
 
 
 
