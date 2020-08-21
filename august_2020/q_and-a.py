@@ -265,10 +265,6 @@ def sum_2_nums(nums, k):
     except AssertionError:
         return False
 
-    _25 = int(len(nums)*0.25)
-    _50 = int(len(nums)*0.5)
-    _75 = int(len(nums)*0.75)
-
     for i in range(len(nums)):
         if i != len(nums)-1:
             if nums[i] + nums[-1] > k:
@@ -277,17 +273,22 @@ def sum_2_nums(nums, k):
             if nums[i] + nums[-1] == k:
                 return True
 
+        rem_len = len(nums[i:])
+        _25 = int(rem_len * 0.25) + i
+        _50 = int(rem_len * 0.5) + i
+        _75 = int(rem_len * 0.75) + i
+
         if nums[i] + nums[_25] <= k:
             for j in range(_25, i, -1):
                 if nums[i] + nums[j] == k:
                     return True
 
-        if nums[i] + nums[_50] <= k:
+        elif nums[i] + nums[_50] <= k:
             for j in range(_50, _25, -1):
                 if nums[i] + nums[j] == k:
                     return True
 
-        if nums[i] + nums[_75] <= k:
+        elif nums[i] + nums[_75] <= k:
             for j in range(_75, _50, -1):
                 if nums[i] + nums[j] == k:
                     return True
@@ -296,20 +297,47 @@ def sum_2_nums(nums, k):
             for j in range(len(nums)-1, _75, -1):
                 if nums[i] + nums[j] == k:
                     return True
-                else:
-                    break
 
     return False
 
-nums = [624, 267, 228, 405, 141, 738, 831, 667, 14, 597, 230]
-k = 534
 
-print(sum_2_nums(nums,k))
+nums = [49, 314, 264, 980, 900, 714, 433, 969, 647]
+k = 1294
 
-# Wrong Answer- work tomorrow
-# I need to be resetting nums to meet the list
-
+# print(sum_2_nums(nums,k))
+# ---------------------------------------------------------------------------------------------
 
 
+""" 
+21st Aug
+Palindrome Integer
 
+Question 5 of 713
+Given a non-negative integer num, return whether it is a palindrome.
+
+Bonus: Can you solve it without using strings?
+
+Example 1
+Input
+
+num = 121
+Output
+
+True
+
+"""
+
+
+def palindrome_integer(num):
+
+    n = num
+    rev = 0
+
+    while num > 0:
+        digit = num % 10
+        rev = rev * 10 + digit
+        num = num // 10
+
+    return n == rev
+# print(palindrome_integer(1235421))
 
