@@ -340,4 +340,72 @@ def palindrome_integer(num):
 
     return n == rev
 # print(palindrome_integer(1235421))
+# ---------------------------------------------------------------------------------------------
 
+
+""" 
+22nd Aug
+Dogcat
+Question 473 of 723
+Given the strings text, word0, and word1, return the smallest distance
+between any two occurrences of word0 and word1 in text, 
+measured in number of words. If either word0 or word1 doesn't appear in text, return -1.
+
+Constraints
+
+word0 and word1 are different.
+n ≤ 200,000 where n is the length of text.
+Example 1
+Input
+
+text = "dog cat hello cat dog dog hello cat world"
+word0 = "hello"
+word1 = "world"
+Output
+
+1
+Explanation
+
+There's only one word "cat" in between the hello and world at the end.
+"""
+
+
+def dog_cat(text, word0, word1):
+
+    try:
+        texts = text.split(' ')
+        ind1 = texts.index(word0)
+        ind2 = texts.index(word1)
+    except ValueError:
+        return -1
+
+    count0, count1 = 0, 0
+    x, y = 0, 0
+    lists = []
+    texts = texts[min(ind1, ind2):]
+
+    for i in range(len(texts)):
+        if len(lists) == 2:
+            lists.pop(lists.index(max(lists)))
+        if texts[i] == word0:
+            count0 += 1
+            x = i
+            if count1:
+                lists.append(i - (y+1))
+                count1 = 0
+
+        elif texts[i] == word1:
+            count1 += 1
+            y = i
+            if count0:
+                lists.append(i - (x+1))
+                count0 = 0
+
+    return lists[0]
+
+
+text = ""
+word0 = "streaky"
+word1 = "folkfree"
+
+print(dog_cat(text, word0, word1))
