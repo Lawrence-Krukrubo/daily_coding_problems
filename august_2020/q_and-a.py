@@ -408,4 +408,39 @@ text = ""
 word0 = "streaky"
 word1 = "folkfree"
 
-print(dog_cat(text, word0, word1))
+# print(dog_cat(text, word0, word1))
+
+
+""" 
+23rd Aug
+BinarySearch.io
+
+Strictly Increasing or Strictly Decreasing
+Question 19 of 728
+Given an list of numbers, determine whether the list is strictly increasing or strictly decreasing.
+
+Example 1
+Input
+
+nums = [1, 2, 3, 4, 5]
+Output
+
+True
+"""
+
+
+def is_strictly_decreasing(nums):
+    nums = sorted(nums, reverse=True)
+
+    for i in nums:
+        for j in nums[nums.index(i)+1:]:
+            if i > j:
+                break
+            else:
+                return False
+
+    return True
+
+nums = [5,2,1,3,4, 7]
+print(is_strictly_decreasing(nums))
+
