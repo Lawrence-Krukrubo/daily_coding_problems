@@ -195,3 +195,43 @@ def reverse_replace(arr):
 
 # Test
 # print(reverse_replace([1, 2, 4, 3, ()]))
+
+# 23rd Sept
+############################################################################
+# Find all binary strings that can be formed from given wildcard pattern
+
+def printAllCombinations(pattern, i=0):
+
+    if i == len(pattern):
+        print(''.join(pattern))
+        return
+
+    # if the current character is '?'
+    if pattern[i] == '?':
+        for ch in "01":
+
+            # replace '?' with 0 and 1
+            pattern[i] = ch
+
+            # recur for the remaining pattern
+            printAllCombinations(pattern, i + 1)
+
+            # backtrack
+            pattern[i] = '?'
+
+    else:
+        # if the current character is 0 or 1, ignore it and
+        # recur for the remaining pattern
+        printAllCombinations(pattern, i + 1)
+
+# print(printAllCombinations(list("1?11?00?1?")))
+
+# Recursive function to replace each element of a list with product
+# of every other element without using division operator
+
+
+def find_product(arr):
+    n = len(arr)
+
+
+
