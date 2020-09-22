@@ -153,7 +153,7 @@ def reverse_array(arr):
 
 
 # Test
-#print(reverse_array([5, 'Hi!', 4, 'Hey!', 3, 'Hola!', 2, 'Go!']))
+# print(reverse_array([5, 'Hi!', 4, 'Hey!', 3, 'Hola!', 2, 'Go!']))
 
 """
 8. Write a recursive func that takes an array and returns an array with all items reversed.
@@ -198,9 +198,13 @@ def reverse_replace(arr):
 
 # 23rd Sept
 ############################################################################
-# Find all binary strings that can be formed from given wildcard pattern
 
-def printAllCombinations(pattern, i=0):
+""" 
+9. Find all binary strings that can be formed from given wildcard pattern
+"""
+
+
+def print_all_combinations(pattern, i=0):
 
     if i == len(pattern):
         print(''.join(pattern))
@@ -214,7 +218,7 @@ def printAllCombinations(pattern, i=0):
             pattern[i] = ch
 
             # recur for the remaining pattern
-            printAllCombinations(pattern, i + 1)
+            print_all_combinations(pattern, i + 1)
 
             # backtrack
             pattern[i] = '?'
@@ -222,12 +226,53 @@ def printAllCombinations(pattern, i=0):
     else:
         # if the current character is 0 or 1, ignore it and
         # recur for the remaining pattern
-        printAllCombinations(pattern, i + 1)
+        print_all_combinations(pattern, i + 1)
 
-# print(printAllCombinations(list("1?11?00?1?")))
+# print(print_all_combinations(list("1?11?00?1?")))
 
-# Recursive function to replace each element of a list with product
-# of every other element without using division operator
+
+"""
+Reverse an array in place without initialising a new array
+"""
+
+
+def reverse_inplace(arr):
+
+    # base case
+    if not arr:
+        return []
+
+    return [arr[-1]] + reverse_inplace(arr[:-1])
+
+
+# print(reverse_inplace([2, 3, 4]))
+
+"""
+Reverse an array of integers in place without initialising a new array,
+with positive numbers replaced with zero and negative numbers with 1 
+"""
+
+
+def reverse_binary(arr):
+
+    # base case
+    if not arr:
+        return []
+
+    # recursive case
+    if arr[-1] % 2 == 0:
+        arr[-1] = 0
+    else:
+        arr[-1] = 1
+    return [arr[-1]] + reverse_binary(arr[:-1])
+
+
+# print(reverse_binary([2, 3, 4, 6]))
+
+""" 
+Recursive function to replace each element of a list with product
+of every other element without using division operator
+"""
 
 
 def find_product(arr):
