@@ -232,7 +232,7 @@ def print_all_combinations(pattern, i=0):
 
 
 """
-Reverse an array in place without initialising a new array
+10. Reverse an array in place without initialising a new array
 """
 
 
@@ -248,6 +248,7 @@ def reverse_inplace(arr):
 # print(reverse_inplace([2, 3, 4]))
 
 """
+11.
 Reverse an array of integers in place without initialising a new array,
 with positive numbers replaced with zero and negative numbers with 1 
 """
@@ -269,7 +270,8 @@ def reverse_binary(arr):
 
 # print(reverse_binary([2, 3, 4, 6]))
 
-""" 
+"""
+12. 
 Recursive function to replace each element of a list with product
 of every other element without using division operator
 """
