@@ -275,10 +275,46 @@ def reverse_binary(arr):
 Recursive function to replace each element of a list with product
 of every other element without using division operator
 """
+# # base case: no elements left on right side
+#     if i == n:
+# 	    return 1
+#
+# 	# take back-up of current element
+# 	curr = A[i]
+#
+# 	# calculate product of the right sublist
+# 	right = findProduct(A, n, left * A[i], i + 1)
+#
+# 	# replace current element with product of left and right sublist
+# 	A[i] = left * right
+#
+# 	# return product of right sublist including current element
+# 	return curr * right
 
 
-def find_product(arr):
-    n = len(arr)
+def find_product(arr, left=1, i=0):
+    if i == len(arr):
+        return 1
+
+    curr = arr[i]
+
+    right = find_product(arr, left * curr, i + 1)
+
+    arr[i] = left * right
+
+    return curr * right
+
+
+A = [2, 3, 4, 5]
+
+find_product(A)
+
+# print the modified list
+print(A)
+
+
+
+
 
 
 
