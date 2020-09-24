@@ -275,21 +275,6 @@ def reverse_binary(arr):
 Recursive function to replace each element of a list with product
 of every other element without using division operator
 """
-# # base case: no elements left on right side
-#     if i == n:
-# 	    return 1
-#
-# 	# take back-up of current element
-# 	curr = A[i]
-#
-# 	# calculate product of the right sublist
-# 	right = findProduct(A, n, left * A[i], i + 1)
-#
-# 	# replace current element with product of left and right sublist
-# 	A[i] = left * right
-#
-# 	# return product of right sublist including current element
-# 	return curr * right
 
 
 def find_product(arr, left=1, i=0):
@@ -310,11 +295,33 @@ A = [2, 3, 4, 5]
 find_product(A)
 
 # print the modified list
-print(A)
+# print(A)
 
 
+"""
+13. 
+Recursive function that returns a list whose elements are the
+result of multiplying corresponding elements of 2 lists of same length
+"""
 
 
+def multiply_vectors(vec1, vec2):
+    vector = []
+
+    # base case
+    if not vec1:
+        return vector
+
+    # recursive case
+    vector.append(vec1[0] * vec2[0])
+    return vector + multiply_vectors(vec1[1:], vec2[1:])
 
 
+# print(multiply_vectors([2, 3, 4], [2, 3, 4]))
 
+
+"""
+14. 
+Building on 13, write a recursive function that returns a list whose elements are the
+result of multiplying corresponding elements of arbitrary lists of same length
+"""
