@@ -1,19 +1,21 @@
 import time
 
 
-def binary_search(num1, num2):
+def binary_search(mini, maxi):
     try:
-        assert type(num1) is type(num2) is int
-        assert 0 < num1 and num2
+        assert type(mini) is type(maxi) is int
+        assert 0 <= mini < maxi
     except:
-        return 'ERROR: Numbers can only be positive whole numbers > 0.'
+        error = 'ERROR: mini must be >= 0 and mini must be < maxi\n' \
+                'mini and maxi must be whole numbers'
+        return error
 
     try:
-        assert abs(num1 - num2) > 10
+        assert abs(mini - maxi) > 5
     except:
-        return 'ERROR: high - low, must be > 10.'
+        return 'ERROR: maxi - mini, must be > 5.'
 
-    arr = list(range(min(num1, num2), max(num1, num2) + 1))
+    arr = list(range(min(mini, maxi), max(mini, maxi) + 1))
 
     print("Hello, please what's your name?")
     name = input()
@@ -45,7 +47,7 @@ def binary_search(num1, num2):
 
         if minn > maxx:
             strr = f'Game-Over! {name} your secret number is not in the range {arr[0]} to {arr[-1]}.\n' \
-                   f'Choose only one secret number and Do Not Change it...Try again.'
+                   f'Try again. Pay attention to the rules...'
             break
 
         if ans in ['y', 'Y']:
@@ -68,9 +70,11 @@ def binary_search(num1, num2):
 
 
 if __name__ == '__main__':
-    print('Calling Binary-Search-Game with limits: 1 to 100000...')
+    mini = 18
+    maxi = 21
+    print(f'Calling Binary-Search-Game with limits: {mini} to {maxi}...')
     print()
-    print(binary_search(1, 100000))
+    print(binary_search(mini, maxi))
 
 else:
     maxi = int(input('Please type a maximum number: Whole-Number'))
