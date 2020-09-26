@@ -325,3 +325,21 @@ def multiply_vectors(vec1, vec2):
 Building on 13, write a recursive function that returns a list whose elements are the
 result of multiplying corresponding elements of arbitrary lists of same length
 """
+
+"""
+15. 
+Write a recursive function that takes two numbers x, y and returns a number that is
+the product of x raised to power y progressively.
+For example if x = 3 and y = 3, then return 3^1 + 3^2 + 3**3 = 3 + 9 + 27 = 39 
+"""
+
+
+def branching_factor(x, y):
+    # Base case
+    if y == 1:
+        return x**y
+
+    # Recursive case
+    return x**y + branching_factor(x, y-1)
+
+print(branching_factor(3, 3))
