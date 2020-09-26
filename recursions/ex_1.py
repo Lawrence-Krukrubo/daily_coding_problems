@@ -342,4 +342,25 @@ def branching_factor(x, y):
     # Recursive case
     return x**y + branching_factor(x, y-1)
 
-print(branching_factor(3, 3))
+#print(branching_factor(3, 3))
+
+
+"""
+16.
+Implement a function recursively to get the desired
+Fibonacci sequence value.
+Your code should have the same input/output as the 
+iterative code in the instructions."""
+
+
+def get_fib(position):
+
+    # Base case
+    if position == 0 or position == 1:
+        return position
+
+    # Recursive case
+    else:
+        return get_fib(position-1) + get_fib(position-2)
+
+# print(get_fib(8))
