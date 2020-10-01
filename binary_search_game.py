@@ -1,5 +1,13 @@
 import time
 
+"""
+Binary search is a searching Algorithm that seeks to find an element,
+in any given half of the array.
+
+Binary search splits the array in half on each search.
+
+It has a time complexity of O(log(n))
+"""
 
 def binary_search(mini, maxi):
     try:

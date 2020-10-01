@@ -356,11 +356,48 @@ iterative code in the instructions."""
 def get_fib(position):
 
     # Base case
-    if position == 0 or position == 1:
+    if position in [0, 1]:
         return position
 
     # Recursive case
     else:
         return get_fib(position-1) + get_fib(position-2)
 
-# print(get_fib(8))
+# print(get_fib(5))
+
+"""
+17.
+Implement the factorial function recursively
+"""
+
+
+def fact(n):
+    # Base case
+    if n == 1:
+        return 1
+    # Recursive case
+    return n * fact(n-1)
+
+# print(fact(5))
+
+
+"""
+18.
+Write a recursive function that counts down a given number and prints 'Done!',
+when all numbers are fully counted down.
+"""
+
+
+def count_down(value):
+    # Base case
+    if value < 1:
+        print('Done!')
+
+    # Recursive case
+    else:
+        print(value)
+        count_down(value-1)
+    return ''
+
+print(count_down(5))
+
