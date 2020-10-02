@@ -450,12 +450,55 @@ uni_power_list = power_set(uni_list)
 #     print(sublist)
 
 
+"""
+21.
+Write a recursive function that given a string, returns
+a list of every single subset combination of the string.
+"""
+
+
+def all_subsets(string):
+    # Base case
+
+    if not string:
+        return ['']
+
+    # Recursive Case
+
+    first = string[0]
+    first_plus_subset = [first + rest for rest in all_subsets(string[1:])]
+
+    return first_plus_subset + all_subsets(string[1:])
+
+
+# print(all_subsets('doms'))
 
 
 
+"""
+22.
+Write a recursive function that flattens a nested list,
+into a single list of elements. The nested list may contain
+a combination of lists and single elements
+"""
 
 
+def flatten(nested_list):
+    result = []
 
+    for item in nested_list:
+        if isinstance(item, list):
+            flat_list = flatten(item)
+            [result.append(x) for x in flat_list]
+        else:
+            result.append(item)
+
+    return result
+
+
+planets = ['mercury', 'venus', ['earth'], 'mars', [['jupiter', 'saturn']], 'uranus', ['neptune', 'pluto']]
+
+print(flatten(planets))
 
 
 
