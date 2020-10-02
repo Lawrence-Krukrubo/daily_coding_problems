@@ -329,7 +329,7 @@ result of multiplying corresponding elements of arbitrary lists of same length
 """
 15. 
 Write a recursive function that takes two numbers x, y and returns a number that is
-the product of x raised to power y progressively.
+the sum of the product of x raised to power y progressively.
 For example if x = 3 and y = 3, then return 3^1 + 3^2 + 3**3 = 3 + 9 + 27 = 39 
 """
 
@@ -399,5 +399,73 @@ def count_down(value):
         count_down(value-1)
     return ''
 
-print(count_down(5))
+# print(count_down(5))
+
+
+"""
+19.
+Write a recursive function that takes a number and sums up all numbers,
+from 1 to that number.
+"""
+
+
+def sum_to_one(n):
+    # Base case
+    if n == 1:
+        return 1
+
+    # Recursive case
+    else:
+        return n + sum_to_one(n-1)
+
+# print(sum_to_one(10))
+
+
+"""
+20.
+Write a recursive function that returns a power set containing 
+every single subset of an array.
+"""
+
+
+def power_set(array):
+    # 1. Base Case
+
+    if not array:
+        return [[]]
+
+    # 2. Recursive Case
+
+    first_element = [array[0]]
+    # get the subset with first element for each subset of array
+    subset_with_first_element = [first_element + rest for rest in power_set(array[1:])]
+
+    return subset_with_first_element + power_set(array[1:])
+
+
+uni_list = ['MIT', 'UCLA', 'NYU', 'USW']
+uni_power_list = power_set(uni_list)
+
+# for sublist in uni_power_list:
+#     print(sublist)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
