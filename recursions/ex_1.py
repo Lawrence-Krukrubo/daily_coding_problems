@@ -498,10 +498,24 @@ def flatten(nested_list):
 
 planets = ['mercury', 'venus', ['earth'], 'mars', [['jupiter', 'saturn']], 'uranus', ['neptune', 'pluto']]
 
-print(flatten(planets))
+
+"""
+23.
+Write a recursive function that counts the number of 
+negative numbers in an array and returns it
+"""
 
 
+def count_negs(arr, neg_count=0):
+    # base Case
+    if not arr:
+        return neg_count
 
+    # Recursive Case
+    if arr[0] % 2 == 1:
+        neg_count += 1
+
+    return count_negs(arr[1:], neg_count)
 
 
 

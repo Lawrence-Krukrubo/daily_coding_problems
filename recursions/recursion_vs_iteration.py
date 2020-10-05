@@ -123,13 +123,13 @@ def is_palindrome(my_string):
 def is_palindrome_rec(string, first=None, last=None):
     # Base Case
     if first is None and last is None:
-        first, last = [], []
+        first, last = '', ''
     if len(string) <= 1:
         return first == last
 
     # Recursive Case
-    first.append(string[0])
-    last.append(string[-1])
+    first += string[0]
+    last += string[-1]
 
     return is_palindrome_rec(string[1:-1], first, last)
 
@@ -153,9 +153,6 @@ def multiplication_rec(num1, num2, base=0):
     # Recursive Case
     base += num1
     return multiplication_rec(num1, num2-1, base)
-
-
-print(multiplication_rec(3,7))
 
 
 
