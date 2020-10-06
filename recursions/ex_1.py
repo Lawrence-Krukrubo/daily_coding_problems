@@ -278,25 +278,25 @@ of every other element without using division operator
 
 
 def find_product(arr, left=1, i=0):
+    # base case: no elements left on right side
     if i == len(arr):
         return 1
 
+    # take back-up of current element
     curr = arr[i]
 
+    # calculate product of the right sublist
     right = find_product(arr, left * curr, i + 1)
 
+    # replace current element with product of left and right sublist
     arr[i] = left * right
 
     return curr * right
 
 
-A = [2, 3, 4, 5]
-
-find_product(A)
-
-# print the modified list
-# print(A)
-
+arr = [2, 4, 5]
+find_product(arr)
+#print(arr)
 
 """
 13. 
@@ -516,6 +516,38 @@ def count_negs(arr, neg_count=0):
         neg_count += 1
 
     return count_negs(arr[1:], neg_count)
+
+
+"""
+24. 
+Recursive function to replace each element of a list with product
+of every other element without using division operator
+"""
+
+
+def replace(arr, i=0, temp=None, value=1):
+
+    if temp is None:
+        temp = [0]*len(arr)
+
+    # Base Case:
+    if i == len(arr):
+        return temp
+
+    else:
+        # Recursive Case
+        for k in range(len(arr)):
+            if k == i:
+                continue
+            else:
+                value *= arr[k]
+        temp[i] = value
+
+    return replace(arr, i+1, temp)
+
+
+#print(replace([1, 2, 3, 4, 5]))
+
 
 
 
