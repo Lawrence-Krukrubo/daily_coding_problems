@@ -545,13 +545,35 @@ def replace(arr, i=0, temp=None, value=1):
 
     return replace(arr, i+1, temp)
 
-
-#print(replace([1, 2, 3, 4, 5]))
-
+# print(replace([1, 2, 3, 4, 5]))
 
 
+"""
+25. HACKER-RANK
+Given an integer, we need to find the super digit of the integer.
+If it has only 1 digit, then its super digit is the digit.
+method takes two parameters: n a string representation of a number and k a number
+for the first time multiply n by k, then convert it to a number and find
+the recursive sums of the digits until just one digit remaining
+"""
 
 
+def superDigit(n, k, p=None):
+
+    # Base case
+    if len(n) == 1:
+        return int(n)
+
+    val = sum(int(i) for i in n)
+
+    if p is None:
+        val *= k
+        p = 1
+
+    # Recursive Case
+    return superDigit(str(val), k, p)
+
+print(superDigit('148', 3))
 
 
 
