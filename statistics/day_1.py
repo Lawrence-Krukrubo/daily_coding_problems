@@ -1,4 +1,6 @@
 """
+HACKER-RANK
+
 Calculate the mean, median mode from a distribution of numbers.
 It takes input from stdin and prints the mean, median, and mode
 """
