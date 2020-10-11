@@ -1,5 +1,7 @@
 """
+Basic Probability
 Task
+
 In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that their sum will be at most 9.
 """
 
@@ -26,7 +28,9 @@ def toss_2_coins():
 
 
 """
+Basic Probability- More Coins
 Task
+
 In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that the values rolled by each die 
 will be different and the two dice have a sum of 6.
 """
