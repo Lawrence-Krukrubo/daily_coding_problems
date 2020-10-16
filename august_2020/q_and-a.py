@@ -486,6 +486,40 @@ def effective_branching_factor(n, d):
     return round(b_star, 4)
 
 
-print(effective_branching_factor(52, 5))
+#print(effective_branching_factor(52, 5))
 
 
+"""
+Write a python function that confirms if a number is a perfect square.
+That is, if the number is a product of 2 equal numbers.
+"""
+
+
+def is_perfect_squ(x):
+    """Confirm if x is a perfect square
+
+    :param x: An integer greater than 0
+    :return: Boolean (True or False)
+    """
+    try:
+        assert x > 0
+        if x * x == x: return True
+    except AssertionError:
+        return 'ERROR: x cannot be <= 0!'
+
+    # Now we use Binary search to confirm x
+
+    low = 0
+    high = x
+
+    while True:
+        if high - low <= 1:
+            return False
+        mid = (high + low) // 2
+        if mid**2 > x:
+            high = mid
+        elif mid**2 < x:
+            low = mid
+        else:
+            return True
+print(is_perfect_squ(4225))
